@@ -1,3 +1,8 @@
+<input type="text"
+    (input)="onFieldChange($event)">
+<input type="text"
+    [(ngModel)]="fieldValue">
+<!-- <p>{{ fieldValue }}</p> -->
 <button
     class="btn btn-primary"
     [disabled]="!allowNewServer"
@@ -5,6 +10,11 @@
     >
         Add Server
 </button>
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+<p *ngIf="isDescription; else noServer">
+    The Server was created!
+    The server name is {{ fieldValue }}
+</p>
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
