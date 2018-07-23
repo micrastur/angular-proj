@@ -1,0 +1,12 @@
+<button (click)="onBtnClick()">Detail info</button>
+<p *ngIf="infoVisibility">
+  User visit score - {{ visitScore }}
+</p>
+<div *ngFor="let item of userClickHistory">
+  <span
+    [ngClass]="{'user_status--popular': item >= 5}"
+    [ngStyle]="{'background-color': item >= 5 ? 'blue' : 'none'}"
+  >
+    {{ item }}
+  </span>
+</div>
