@@ -10,6 +10,9 @@ import { AlertWarning } from './alertWarning/alertWarning.component';
 import { AlertSuccess } from './alertSuccess/alertSuccess.component';
 import { Username } from './username/username.component';
 import { VisitScoreComponent } from './visit-score/visit-score.component';
+import { GameControlComponent } from './game-control/game-control.component';
+import { OddComponent } from './odd/odd.component';
+import { EvenComponent } from './even/even.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { VisitScoreComponent } from './visit-score/visit-score.component';
     AlertWarning,
     AlertSuccess,
     Username,
-    VisitScoreComponent
+    VisitScoreComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,

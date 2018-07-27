@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-xs-12">
             <input type="text" [(ngModel)]="title">
@@ -12,6 +12,10 @@
             <app-visit-score></app-visit-score>
         </div>
     </div>
-</div>
-
+</div> -->
+<app-game-control
+  (startGame)="onGameStarted($event)"
+  (stopGame)="onGameStopped($event)"
+>
+</app-game-control>
 
