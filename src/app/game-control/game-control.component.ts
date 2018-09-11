@@ -7,30 +7,33 @@ import { $ } from '../../../node_modules/protractor';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  @Output() startGame = new EventEmitter<{gameInterval: any, gameNumber: number}>();
-  @Output() stopGame = new EventEmitter<{gameInterval: any, gameNumber: number}>();
+  @Output() startGame = new EventEmitter<{gameNumber: number}>();
+  @Output() stopGame = new EventEmitter<{gameNumber: number}>();
   number: number;
-  interval: number;
+  intervalID: any;
 
   constructor() {
     this.number = 0;
-    this.interval = 0;
+    this.intervalID = 0;
   }
 
   ngOnInit() {
   }
 
   onStart() {
-    this.startGame.emit({
-      gameInterval: this.interval,
-      gameNumber: this.number
-    });
+    this.intervalID = setInterval(() => {
+      this.number += 1;
+
+      this.startGame.emit({
+        gameNumber: this.number
+      });
+    }, 1000);
   }
 
   onStop() {
-    console.log(this.interval);
+    this.number += 1;
+    clearInterval(this.intervalID);
     this.stopGame.emit({
-      gameInterval: this.interval,
       gameNumber: this.number
     });
   }

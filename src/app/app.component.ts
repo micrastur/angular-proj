@@ -12,17 +12,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  gameNumber;
+  intervalID;
 
-  onGameStarted(gemeControl: {gameInterval: any, gameNumber: number}) {
-    gemeControl.gameInterval = setInterval(() => {
-      gemeControl.gameNumber += 1;
-      console.log(gemeControl.gameNumber);
-    }, 1000);
-    console.log(gemeControl.gameInterval);
+  onGameStarted(gameEvent: {gameNumber: number}) {
+    this.gameNumber = gameEvent.gameNumber;
+    console.log(this.gameNumber);
   }
 
-  onGameStopped(gemeControl: {gameInterval: any,  gameNumber: number}) {
-    console.log(gemeControl.gameNumber);
-    clearInterval(gemeControl.gameInterval);
+  onGameStopped(gameEvent: {gameNumber: number}) {
+    this.intervalID && clearInterval(this.intervalID);
+    this.gameNumber = gameEvent.gameNumber;
+    console.log(this.gameNumber);
   }
 }
