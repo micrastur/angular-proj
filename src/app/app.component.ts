@@ -19,10 +19,4 @@ export class AppComponent {
     this.gameNumber = gameEvent.gameNumber;
     console.log(this.gameNumber);
   }
-
-  onGameStopped(gameEvent: {gameNumber: number}) {
-    this.intervalID && clearInterval(this.intervalID);
-    this.gameNumber = gameEvent.gameNumber;
-    console.log(this.gameNumber);
-  }
 }

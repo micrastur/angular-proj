@@ -15,7 +15,10 @@
 </div> -->
 <app-game-control
   (startGame)="onGameStarted($event)"
-  (stopGame)="onGameStopped($event)"
 >
 </app-game-control>
+<app-even *ngIf="gameNumber % 2 == 0; else oddComponent"></app-even>
+<ng-template #oddComponent>
+  <app-odd></app-odd>
+</ng-template>
 

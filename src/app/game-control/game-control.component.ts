@@ -8,7 +8,6 @@ import { $ } from '../../../node_modules/protractor';
 })
 export class GameControlComponent implements OnInit {
   @Output() startGame = new EventEmitter<{gameNumber: number}>();
-  @Output() stopGame = new EventEmitter<{gameNumber: number}>();
   number: number;
   intervalID: any;
 
@@ -23,7 +22,6 @@ export class GameControlComponent implements OnInit {
   onStart() {
     this.intervalID = setInterval(() => {
       this.number += 1;
-
       this.startGame.emit({
         gameNumber: this.number
       });
@@ -31,10 +29,6 @@ export class GameControlComponent implements OnInit {
   }
 
   onStop() {
-    this.number += 1;
     clearInterval(this.intervalID);
-    this.stopGame.emit({
-      gameNumber: this.number
-    });
   }
 }
