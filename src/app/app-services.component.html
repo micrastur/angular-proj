@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-md-offset-2">
+            <p>Add new user</p>
+            <div class="row">
+                <div class="col-xs-2 col-md-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="newUser">
+                    </div>
+                </div>
+                <div class="col-xs-2 col-md-2">
+                    <button class="btn btn-primary" (click)="onAddUser()">Add user</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <app-active-users [users]="activeUsers"></app-active-users>
+            <app-inactive-users [users]="inactiveUsers"></app-inactive-users>
+        </div>
+    </div>
+</div>
